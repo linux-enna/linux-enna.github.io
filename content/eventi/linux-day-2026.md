@@ -5,9 +5,9 @@ date: 2026-10-09  # data di pubblicazione della pagina, non dell'evento
 in_evidenza: true
 eyebrow: "Giornata nazionale del software libero"
 lead: "Una giornata per scoprire Linux e il software libero: talk al mattino, installation party e confronto con le aziende nel pomeriggio. Aperta a studenti, docenti, professionisti e curiosi."
-summary: "Talk, installation party e confronto con le aziende del territorio. Università Kore di Enna, Polo Scientifico-Tecnologico di Santa Panasia. Ingresso libero e gratuito."
+summary: "Talk, installation party e confronto con le aziende del territorio. Università Kore di Enna, C.da Santa Panasia. Ingresso libero e gratuito."
 quando: "Sabato 24 ottobre 2026"
-dove: "Università Kore di Enna, Polo Scientifico-Tecnologico, C.da Santa Panasia"
+dove: "Università Kore di Enna, C.da Santa Panasia"
 ingresso: "Libero e gratuito"
 nota_programma: "Programma di massima: titoli, ordine e orari saranno confermati nei prossimi giorni."
 
@@ -55,9 +55,9 @@ Cerchiamo **volontari** per accoglienza e installation party. Se ti va di dare u
 
 ## Come arrivare {#dove}
 
-Polo Scientifico-Tecnologico dell'Università Kore di Enna, Contrada Santa Panasia, Enna. Le indicazioni per le aule saranno disponibili all'ingresso.
+Università Kore di Enna, Contrada Santa Panasia, Enna. Le indicazioni per le aule saranno disponibili all'ingresso.
 
-[Apri la mappa su OpenStreetMap](https://www.openstreetmap.org/search?query=Universit%C3%A0%20Kore%20di%20Enna%20Santa%20Panasia)
+[Apri la mappa su OpenStreetMap](https://www.openstreetmap.org/node/12698650099#map=19/37.540615/14.284000)
 
 ## Il Linux Day {#linuxday}
 
