@@ -1,0 +1,3 @@
+{{ .titolo }}{{ if .da_confermare }} <span class="tag">da confermare</span>{{ end }}
+{{- with .relatore }}<span class="who">{{ . }}</span>{{ end }}
+{{- with .nota }}<span class="who">{{ . }}</span>{{ end }}

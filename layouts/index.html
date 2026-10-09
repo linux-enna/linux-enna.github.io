@@ -1,0 +1,47 @@
+{{ define "main" }}
+<div class="wrap">
+  <section class="intro">
+    {{ with .Params.eyebrow }}<p class="eyebrow">{{ . }}</p>{{ end }}
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.lead }}<p class="lead">{{ . }}</p>{{ end }}
+  </section>
+
+  {{- /* Evento in evidenza: il primo evento con "in_evidenza: true" */}}
+  {{- with first 1 (where (where site.RegularPages "Section" "eventi") "Params.in_evidenza" true) }}
+  {{- range . }}
+  <section class="feature" aria-labelledby="evento">
+    <div>
+      <p class="when">{{ .Params.quando }}</p>
+      <h2 id="evento">{{ .Title }}</h2>
+      <p>{{ .Params.summary }}</p>
+    </div>
+    <a class="button" href="{{ .RelPermalink }}">Programma e informazioni</a>
+  </section>
+  {{- end }}
+  {{- end }}
+
+  <div class="columns">
+    <section id="annunci" aria-labelledby="annunci-titolo">
+      <h2 id="annunci-titolo">Annunci</h2>
+      {{- $news := where site.RegularPages "Section" "annunci" }}
+      <ul class="news">
+        {{- range first site.Params.homeNews $news }}
+        {{- $href := .RelPermalink }}{{ with .Params.link }}{{ $href = . | relURL }}{{ end }}
+        <li>
+          <span class="meta">{{ partial "date.html" .Date }}</span>
+          <h3><a href="{{ $href }}">{{ .Title }}</a></h3>
+          {{ .Content }}
+        </li>
+        {{- end }}
+      </ul>
+      {{- if gt (len $news) site.Params.homeNews }}
+      <p class="more"><a href="{{ "annunci/" | relURL }}">Tutti gli annunci</a></p>
+      {{- end }}
+    </section>
+
+    <aside class="content">
+      {{ .Content }}
+    </aside>
+  </div>
+</div>
+{{ end }}

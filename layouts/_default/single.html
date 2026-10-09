@@ -1,0 +1,8 @@
+{{ define "main" }}
+<article class="wrap prose content">
+  {{ if eq .Section "annunci" }}<span class="meta">{{ partial "date.html" .Date }}</span>{{ end }}
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  {{ if eq .Section "annunci" }}<p><a href="{{ "/" | relURL }}">Torna alla home</a></p>{{ end }}
+</article>
+{{ end }}

@@ -1,0 +1,16 @@
+{{ define "main" }}
+<div class="wrap prose">
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  <ul class="news">
+    {{- range .Pages }}
+    {{- $href := .RelPermalink }}{{ with .Params.link }}{{ $href = . | relURL }}{{ end }}
+    <li>
+      <span class="meta">{{ partial "date.html" .Date }}</span>
+      <h3><a href="{{ $href }}">{{ .Title }}</a></h3>
+      {{ with .Params.summary }}<p>{{ . }}</p>{{ else }}{{ .Content }}{{ end }}
+    </li>
+    {{- end }}
+  </ul>
+</div>
+{{ end }}

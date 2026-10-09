@@ -1,0 +1,9 @@
+# Note interne di organizzazione, non pubblicare
+NOTE-ORGANIZZAZIONE.md
+
+# Hugo
+public/
+resources/_gen/
+.hugo_build.lock
+
+.DS_Store

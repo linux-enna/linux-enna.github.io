@@ -1,0 +1,46 @@
+{{ define "main" }}
+<div class="wrap">
+  <section>
+    {{ with .Params.eyebrow }}<p class="eyebrow">{{ . }}</p>{{ end }}
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.lead }}<p class="lead">{{ . }}</p>{{ end }}
+    <dl class="facts">
+      {{ with .Params.quando }}<div><dt>Quando</dt><dd>{{ . }}</dd></div>{{ end }}
+      {{ with .Params.dove }}<div><dt>Dove</dt><dd>{{ . }}</dd></div>{{ end }}
+      {{ with .Params.ingresso }}<div><dt>Ingresso</dt><dd>{{ . }}</dd></div>{{ end }}
+    </dl>
+  </section>
+
+  <div class="prose">
+    {{- with .Params.programma }}
+    <section id="programma" class="programme" aria-labelledby="programma-titolo">
+      <h2 id="programma-titolo">Programma</h2>
+      {{ with $.Params.nota_programma }}<p class="note">{{ . }}</p>{{ end }}
+      {{- range . }}
+      <h3>{{ .parte }}</h3>
+      <ul class="slots">
+        {{- range .voci }}
+        {{- if .parallelo }}
+        <li>
+          <span class="parallel-label">In parallelo</span>
+          <div class="parallel">
+            {{- range .parallelo }}
+            <div>{{ partial "slot.html" . }}</div>
+            {{- end }}
+          </div>
+        </li>
+        {{- else }}
+        <li{{ if .minore }} class="minor"{{ end }}>{{ partial "slot.html" . }}</li>
+        {{- end }}
+        {{- end }}
+      </ul>
+      {{- end }}
+    </section>
+    {{- end }}
+
+    <div class="content">
+      {{ .Content }}
+    </div>
+  </div>
+</div>
+{{ end }}

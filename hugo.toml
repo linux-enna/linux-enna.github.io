@@ -1,0 +1,35 @@
+baseURL = "https://linux-enna.github.io/"
+locale = "it-IT"
+defaultContentLanguage = "it"
+title = "Linux Enna"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  description = "Linux e software libero a Enna. Linux Day, incontri e progetti aperti a tutti."
+  email = "moreno.laquatra@unikore.it"
+  github = "https://github.com/linux-enna"
+  repo = "https://github.com/linux-enna/linux-enna.github.io"
+  # Numero di annunci mostrati in home
+  homeNews = 5
+
+[[menus.main]]
+  name = "Home"
+  pageRef = "/"
+  weight = 10
+[[menus.main]]
+  name = "Linux Day 2026"
+  pageRef = "/eventi/linux-day-2026"
+  weight = 20
+[[menus.main]]
+  name = "Contatti"
+  url = "/#contatti"
+  weight = 30
+
+[markup.goldmark.extensions.typographer]
+  # Virgolette dritte e trattini semplici, nessuna sostituzione tipografica
+  disable = true
+
+[outputs]
+  home = ["html", "rss"]
+  section = ["html", "rss"]
