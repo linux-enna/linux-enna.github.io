@@ -10,8 +10,6 @@ Linux Enna è un gruppo di persone di Enna e dintorni che usano e promuovono Lin
 
 Il gruppo è nato per organizzare il Linux Day 2026 e vorrebbe diventare un Linux User Group stabile. Chiunque può partecipare.
 
-## Contatti {#contatti}
+## Contatti
 
-Per informazioni o per dare una mano scrivi a [moreno.laquatra@unikore.it](mailto:moreno.laquatra@unikore.it).
-
-Il codice di questo sito è su [GitHub](https://github.com/linux-enna).
+Per informazioni, proposte o per dare una mano, trovi tutto nella pagina [Contatti](/contatti/).

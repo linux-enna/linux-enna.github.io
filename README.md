@@ -1,45 +1,149 @@
 # linux-enna.github.io
 
-Sito di Linux Enna: Linux e software libero a Enna, con le pagine del Linux Day. Pubblicato su https://linux-enna.github.io.
+Sito di Linux Enna: Linux e software libero a Enna, con le pagine del Linux Day. Online su https://linux-enna.github.io.
 
-Il sito è fatto con [Hugo](https://gohugo.io/), senza temi esterni: i layout sono in `layouts/`. A ogni push su `main`, GitHub Actions lo compila e lo pubblica (`.github/workflows/hugo.yml`). In **Settings > Pages**, la sorgente deve essere **GitHub Actions**.
+Il sito è fatto con [Hugo](https://gohugo.io/), senza temi esterni. A ogni push su `main`, GitHub Actions lo compila e lo pubblica in circa un minuto (`.github/workflows/hugo.yml`). In **Settings > Pages** la sorgente deve restare **GitHub Actions**.
 
-## Modifiche frequenti
+Questa guida vale per le persone e per i coding agent. Le [regole](#regole-per-chi-modifica-il-sito) in fondo vanno rispettate da tutti.
 
-| Cosa | Dove |
+## Come aggiornare il sito
+
+1. Installa Hugo extended, versione 0.165 o successiva (`brew install hugo`, `sudo apt install hugo` o dal sito di Hugo).
+2. Avvia l'anteprima: `hugo server -D` e apri http://localhost:1313. Ogni modifica si vede subito. `-D` mostra anche le bozze.
+3. Modifica i file in `content/` (vedi la tabella sotto). Di solito non serve toccare l'HTML.
+4. Controlla che la build sia pulita: `hugo --gc --minify --panicOnWarning`.
+5. Fai commit e push su `main`. Dopo un minuto il sito è aggiornato. Se qualcosa va storto, guarda la scheda **Actions** su GitHub.
+
+### Dove si trova cosa
+
+| Cosa | File |
 |---|---|
-| Nuovo annuncio | `hugo new annunci/AAAA-MM-GG-titolo.md`, poi modifica il testo |
-| Programma del Linux Day | `content/eventi/linux-day-2026.md`, campo `programma` |
-| Testi delle sezioni dell'evento | stesso file, sotto le `---` |
-| Chi siamo, contatti, testo della home | `content/_index.md` |
-| Menu, email, link | `hugo.toml` |
+| Testo della home, "Chi siamo" | `content/_index.md` |
+| Annunci | `content/annunci/`, uno per file |
+| Linux Day 2026: date, programma, testi | `content/eventi/linux-day-2026.md` |
+| Pagina contatti | `content/contatti.md` |
+| Modulo "Ci vieni al Linux Day?" (bozza) | `content/partecipa/_index.md` |
+| Informativa privacy (bozza) | `content/privacy.md` |
+| Menu, email di contatto, link | `hugo.toml` |
 | Colori e stile | `assets/css/style.css` |
+| Struttura delle pagine | `layouts/` |
+| Logo, icone, font | `static/img/`, `static/fonts/` |
 
-Gli annunci compaiono in home dal più recente. Se un annuncio ha `link`, il titolo porta a quella pagina.
+### Aggiungere un annuncio
 
-### Programma
+```sh
+hugo new annunci/2026-10-20-titolo-breve.md
+```
 
-Ogni voce ha `titolo` e, facoltativi, `relatore`, `nota`, `da_confermare: true` e `minore: true` (voci di servizio, in grigio). Le voci in contemporanea vanno sotto `parallelo`.
+Apri il file, scrivi titolo e testo (due o tre frasi). Con `link: "/2026/"` il titolo porta a quella pagina invece che alla pagina dell'annuncio. In home compaiono gli ultimi cinque.
+
+### Cambiare il programma
+
+Nel file dell'evento, il campo `programma` è diviso in parti (mattina, pomeriggio), ognuna con un `sottotitolo` facoltativo. Ogni voce ha:
+
+| Campo | Significato |
+|---|---|
+| `titolo` | obbligatorio |
+| `tipo` | `talk` (default), `lab`, `tavola`, `servizio`: cambia colore ed etichetta |
+| `relatore` | nome di chi parla |
+| `nota` | una riga in più |
+| `da_confermare: true` | aggiunge l'etichetta "da confermare" |
+| `link` | `{testo: "...", url: "..."}`, un link sotto la voce |
+
+Le voci che si svolgono in contemporanea vanno dentro `parallelo`. Gli orari per ora non sono mostrati: il programma è "di massima".
+
+### Riquadro "da terminale"
+
+Nei testi in Markdown puoi usare una checklist con un tocco da terminale: una riga di comando e gli stati `[ok]`, `[opz]`, `[info]` in monospazio, il resto in testo normale.
+
+```
+{{</* terminale comando="./prepara.sh" */>}}
+ok   | **Testo** in Markdown
+opz  | voce facoltativa
+info | suggerimento
+{{</* /terminale */>}}
+```
+
+### Link secondario
+
+Per un link alternativo meno in vista, ad esempio Google Maps dopo OpenStreetMap:
+
+```
+{{</* alt prima="o su" url="https://..." */>}}Google Maps{{</* /alt */>}}
+```
+
+Nel front matter dell'evento c'è `mappa_google`, nella pagina contatti il campo `alt` di un canale.
+
+### Pagina contatti
+
+Ogni riga è una voce di `canali` in `content/contatti.md`. Con `url: "email"` il link usa l'indirizzo di `hugo.toml`; `oggetto` precompila l'oggetto della mail.
 
 ### Nuova edizione del Linux Day
 
 Copia `content/eventi/linux-day-2026.md` in `linux-day-2027.md`, cambia `url` in `/2027/`, sposta `in_evidenza: true` sulla nuova edizione e aggiorna il menu in `hugo.toml`.
 
-## Anteprima locale
+## Modulo di partecipazione
 
-```sh
-hugo server
-```
+La pagina `/partecipa/` è pronta ma è una **bozza** e non viene pubblicata. Hugo genera solo pagine statiche, quindi il modulo ha bisogno di un servizio esterno che riceva e salvi le risposte. Per attivarlo:
 
-Poi apri http://localhost:1313. Le modifiche si vedono subito.
+1. Scegli e configura il servizio, poi metti il suo indirizzo in `endpoint` in `content/partecipa/_index.md`.
+2. Completa l'informativa in `content/privacy.md`, togliendo tutti i segnaposto tra parentesi quadre, e fai verificare il testo.
+3. Togli `draft: true` da modulo, pagina di ringraziamento (`content/partecipa/grazie.md`) e informativa.
 
-## Logo e immagini
+Il pulsante "Dicci che ci sei" sulla pagina del Linux Day compare da solo quando il modulo è pubblicato e ha un `endpoint`.
 
-In `static/img/`: logo orizzontale per tema chiaro e scuro, icone e immagine per l'anteprima social. Sono ricavati dai file originali del logo.
+Campi inviati con POST: `nome`, `email`, `profilo`, `attivita` (anche ripetuto), `computer`, `computer_modello`, `note`, `consenso_privacy`, `consenso_eventi`, `evento`, `redirect`. Il campo `website` è una trappola per bot: se è compilato, la risposta va scartata.
+
+## Regole per chi modifica il sito
+
+### Non negoziabili
+
+Vengono dalle [linee guida del Linux Day](https://www.linuxday.it/2026/lineeguida/) e dalle scelte del gruppo.
+
+- **Niente tracciamento e niente servizi proprietari incorporati.** Niente analytics, pixel, Google Fonts, CDN, embed di YouTube, Google Maps o Google Forms, widget social. Font e immagini sono nel repository. Per le mappe: link principale a OpenStreetMap, Google Maps solo come link secondario (classe `alt`, più piccolo e grigio). Mai mappe incorporate.
+- **Niente cookie.** L'unico dato salvato nel browser è la scelta del tema (`localStorage`, chiave `theme`).
+- **Ingresso libero e gratuito.** Non scrivere mai che l'iscrizione è obbligatoria. Il modulo è facoltativo e deve dirlo.
+- **Nome dell'evento:** sempre "Linux Day", ad esempio "Linux Day Enna 2026". Nessuna variante.
+- **Niente pubblicità di aziende o prodotti.**
+- **Niente dati personali nel repository, che è pubblico.** Risposte ai moduli, liste di contatti e link privati (Drive, Discord, moduli interni) non vanno committati. `NOTE-ORGANIZZAZIONE.md` è solo locale e in `.gitignore`: si può leggere per il contesto, non copiare nel sito.
+- **Niente informazioni non confermate presentate come certe.** Usa `da_confermare: true`. Non inventare orari, relatori, aule o numeri.
+- **Il sito funziona senza JavaScript.** JS solo come miglioramento (oggi solo `static/js/theme.js`). Niente framework, bundler o dipendenze npm.
+
+### Testi
+
+- Italiano semplice e diretto, frasi brevi. Né accademico né aziendale.
+- Virgolette dritte (`"` e `'`). Nessun trattino lungo o medio: usa due punti, virgole o frasi separate. La punteggiatura va fuori dalle virgolette di chiusura.
+- Titoli come etichette semplici dell'argomento, non slogan. Niente emoji.
+- Il tocco "nerd" è ammesso con misura: etichette monospazio come `[talk]`, il riquadro "da terminale", qualche comando finto. Il sito non deve sembrare un terminale.
+
+### Grafica
+
+- **Palette del logo**, definita in cima a `assets/css/style.css`: carbone `#232526`, verde `#44592e`, arancio `#f2a03d`, pesca `#f2cb9b`, grigio chiaro `#f2f2f2`. Ogni colore del sito è uno di questi o una loro sfumatura. Non introdurre colori nuovi.
+- **Nei componenti usa i ruoli, non i codici esadecimali:** `--page` (sfondo), `--surface` (riquadri), `--ink` (testo), `--muted` (testo secondario), `--line` (bordi e separatori), `--link`, `--accent` (arancio), `--soft` (pesca).
+- **Come si usano:**
+  - tema chiaro: fondo quasi bianco, riquadri grigio chiaro, testo carbone, link verdi, pulsanti arancio;
+  - tema scuro: fondo carbone, riquadri carbone più chiaro, testo grigio chiaro, link pesca, pulsanti arancio;
+  - uguali nei due temi: verde pieno con testo chiaro (riquadro dell'evento in home, laboratorio, "pomeriggio") e pesca pieno con testo carbone (tavola rotonda, etichetta "da confermare").
+- **Colori pieni, niente gradienti.** La linea del programma è arancio al mattino e verde al pomeriggio, come il sole e le colline del logo.
+- **Niente bordi su un solo lato** (left border, top border usati come accento) se non richiesti esplicitamente. Un riquadro ha un bordo uniforme, sottile e discreto (`1px solid var(--line)`) e angoli arrotondati. Le linee che separano le voci di un elenco sono ammesse.
+- Niente glassmorphism, ombre pesanti, animazioni o icone decorative.
+- Fira Sans per il testo, Fira Mono per date, etichette ed elementi tecnici.
+- Ogni ruolo va definito per il tema chiaro e per quello scuro. I valori scuri sono ripetuti in due blocchi (`@media (prefers-color-scheme: dark)` e `:root[data-theme="dark"]`): aggiornali insieme. Se cambi lo sfondo, aggiorna anche `theme-color` in `layouts/_default/baseof.html` (colore della barra del browser sul telefono).
+- Mobile: target di almeno 44 px, niente scroll orizzontale a 320 px.
+- Il logo scuro (`static/img/logo-horizontal-dark.png`) è un file a parte: non invertire il logo con filtri CSS.
+
+### Prima del commit
+
+- `hugo --gc --minify --panicOnWarning` senza errori né avvisi.
+- Pagine toccate controllate in tema chiaro e scuro, a 1280 e a 390 px. **Coding agent:** il controllo visivo lo fa chi ha chiesto la modifica, a meno che non lo chieda a te.
+- Nessun trattino lungo o virgoletta tipografica (U+2013, U+2014, U+2018, U+2019, U+201C, U+201D) nei file modificati.
+- `public/`, `resources/` e `NOTE-ORGANIZZAZIONE.md` non vanno committati (sono in `.gitignore`).
+- Messaggi di commit brevi, in italiano.
+- **Coding agent:** niente push senza il via libera esplicito di chi ha chiesto la modifica, perché il push pubblica subito. Non pubblicare modulo e informativa e non scegliere il servizio del modulo senza chiedere.
 
 ## Tema chiaro e scuro
 
-Di default segue il sistema. Il pulsante nell'header lo cambia e ricorda la scelta; se la scelta torna uguale al sistema, viene dimenticata. Senza JavaScript il sito segue sempre il sistema.
+Di default il sito segue il sistema. Il pulsante nell'header cambia tema e ricorda la scelta; se la scelta torna uguale al sistema, viene dimenticata. Senza JavaScript il sito segue sempre il sistema.
 
 ## Licenze
 

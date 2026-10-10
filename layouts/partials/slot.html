@@ -1,3 +1,10 @@
-{{ .titolo }}{{ if .da_confermare }} <span class="tag">da confermare</span>{{ end }}
-{{- with .relatore }}<span class="who">{{ . }}</span>{{ end }}
-{{- with .nota }}<span class="who">{{ . }}</span>{{ end }}
+{{- /* Una voce del programma. tipo: talk | lab | tavola | servizio (default: talk) */ -}}
+{{- $tipo := .tipo | default "talk" -}}
+{{- $etichette := dict "talk" "talk" "lab" "laboratorio" "tavola" "tavola rotonda" "servizio" "" -}}
+<div class="card card--{{ $tipo }}">
+  {{- with index $etichette $tipo }}<span class="kind">{{ . }}</span>{{ end }}
+  <span class="card-title">{{ .titolo }}{{ if .da_confermare }} <span class="tag">da confermare</span>{{ end }}</span>
+  {{- with .relatore }}<span class="who">{{ . }}</span>{{ end }}
+  {{- with .nota }}<span class="card-note">{{ . }}</span>{{ end }}
+  {{- with .link }}<a class="card-link" href="{{ .url }}">{{ .testo }}</a>{{ end }}
+</div>

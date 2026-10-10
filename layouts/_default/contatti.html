@@ -1,0 +1,32 @@
+{{ define "main" }}
+<div class="wrap">
+  <div class="prose">
+    {{ with .Params.eyebrow }}<p class="eyebrow">{{ . }}</p>{{ end }}
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.lead }}<p class="lead">{{ . }}</p>{{ end }}
+  </div>
+
+  {{- with .Params.canali }}
+  <dl class="channels">
+    {{- range . }}
+    <div>
+      <dt>{{ with .tipo }}<span class="kind">{{ . }}</span>{{ end }}{{ .titolo }}</dt>
+      <dd>
+        {{ with .testo }}<p>{{ . | markdownify }}</p>{{ end }}
+        {{- with .link }}
+        {{- $url := .url }}
+        {{- if eq .url "email" }}{{ $url = printf "mailto:%s" site.Params.email }}{{ with .oggetto }}{{ $url = printf "%s?subject=%s" $url (replace (. | urlquery) "+" "%20") }}{{ end }}{{ end }}
+        <a class="channel-link" href="{{ $url }}">{{ .testo | default (cond (eq .url "email") site.Params.email .url) }}</a>
+        {{- end }}
+        {{- with .alt }}<span class="alt"> o <a href="{{ .url }}">{{ .testo }}</a></span>{{ end }}
+      </dd>
+    </div>
+    {{- end }}
+  </dl>
+  {{- end }}
+
+  <div class="prose content">
+    {{ .Content }}
+  </div>
+</div>
+{{ end }}

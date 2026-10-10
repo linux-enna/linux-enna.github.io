@@ -1,0 +1,25 @@
+{{- /*
+  Checklist con un tocco da terminale.
+  Uso:
+  {{< terminale comando="./prepara.sh" >}}
+  ok   | testo in **markdown**
+  opz  | voce facoltativa
+  info | suggerimento
+  {{< /terminale >}}
+*/ -}}
+{{- $stati := dict "ok" "[ok]" "opz" "[opz]" "info" "[info]" -}}
+<div class="term" role="group" aria-label="{{ .Get "titolo" | default "Checklist" }}">
+  {{- with .Get "comando" }}
+  <p class="term-cmd"><span class="term-prompt" aria-hidden="true">$</span>{{ . }}</p>
+  {{- end }}
+  <ul class="term-lines">
+    {{- range split (trim .Inner "\n") "\n" }}
+    {{- $parts := split . "|" }}
+    {{- if ge (len $parts) 2 }}
+    {{- $stato := trim (index $parts 0) " " }}
+    {{- $testo := trim (delimit (after 1 $parts) "|") " " }}
+    <li class="term-line term-line--{{ $stato }}"><span class="term-status">{{ index $stati $stato | default $stato }}</span><span>{{ $testo | markdownify }}</span></li>
+    {{- end }}
+    {{- end }}
+  </ul>
+</div>

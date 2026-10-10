@@ -23,7 +23,7 @@ disableKinds = ["taxonomy", "term"]
   weight = 20
 [[menus.main]]
   name = "Contatti"
-  url = "/#contatti"
+  pageRef = "/contatti"
   weight = 30
 
 [markup.goldmark.extensions.typographer]
