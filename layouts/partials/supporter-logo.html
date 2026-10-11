@@ -1,0 +1,5 @@
+{{- if .logo_scuro -}}
+<img class="logo-light" src="{{ .logo | relURL }}" alt="{{ .nome }}" loading="lazy"><img class="logo-dark" src="{{ .logo_scuro | relURL }}" alt="{{ .nome }}" loading="lazy">
+{{- else -}}
+<img src="{{ .logo | relURL }}" alt="{{ .nome }}" loading="lazy">
+{{- end -}}

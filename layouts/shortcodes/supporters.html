@@ -1,0 +1,16 @@
+{{- /* Loghi di chi sostiene l'evento, dal front matter "supporters" della pagina.
+     Uso nel Markdown: {{< supporters >}}
+     Ogni voce: nome, ruolo (facoltativo, es. "Ospita l'evento"), url (facoltativo),
+     logo (per il tema chiaro, in static/img/supporters/), logo_scuro (facoltativo, per il tema scuro). */ -}}
+<ul class="supporters">
+  {{- range .Page.Params.supporters }}
+  <li class="supporter">
+    {{- if .url }}
+    <a class="supporter-logo" href="{{ .url }}">{{ partial "supporter-logo.html" . }}</a>
+    {{- else }}
+    <div class="supporter-logo">{{ partial "supporter-logo.html" . }}</div>
+    {{- end }}
+    {{- with .ruolo }}<span class="supporter-role">{{ . }}</span>{{ end }}
+  </li>
+  {{- end }}
+</ul>

@@ -79,6 +79,12 @@ La pagina mostra prima il testo in `content/contatti.md` (oggi i moduli del Linu
 
 Ogni contatto fisso è una voce di `canali`, con un `link` principale e un `alt` secondario facoltativo. Un link può puntare a un modulo (`modulo: "talk"`), a una mail (`url: "email"`, con `oggetto` facoltativo che precompila l'oggetto) o a un URL qualsiasi.
 
+### Supporters
+
+Nella pagina del Linux Day, la sezione "Promotori e supporto" usa lo shortcode `{{</* supporters */>}}` e il campo `supporters` del front matter. Ogni voce ha `nome`, `ruolo` (ad esempio "Ospita l'evento"), `url`, `logo` per il tema chiaro e `logo_scuro` facoltativo per il tema scuro. I loghi vanno in `static/img/supporters/`, preferibilmente in SVG, nelle versioni ufficiali fornite da chi sostiene l'evento.
+
+Prima di aggiungere un logo serve il permesso di chi lo possiede. Per le linee guida del Linux Day i supporter non devono dare all'evento un carattere commerciale: solo logo, nome e link, senza slogan o promozioni.
+
 ### Nuova edizione del Linux Day
 
 Copia `content/eventi/linux-day-2026.md` in `linux-day-2027.md`, cambia `url` in `/2027/`, sposta `in_evidenza: true` sulla nuova edizione e aggiorna il menu in `hugo.toml`.

@@ -275,6 +275,16 @@ main { padding-block: 2.5rem 4rem; }
 .term-line--opz .term-status { color: var(--muted); }
 .term-line--info .term-status { color: var(--muted); }
 
+/* Supporters (shortcode "supporters"): logos on a quiet card, uniform border */
+.supporters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; margin: 1rem 0 1.5rem; padding: 0; list-style: none; }
+.content .supporters li { margin: 0; }
+.supporter { display: flex; flex-direction: column; gap: 0.5rem; }
+.supporter-logo { display: flex; align-items: center; justify-content: center; height: 9rem; padding: 0.9rem 1rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+a.supporter-logo:hover { border-color: var(--muted); }
+/* Same box for every logo: tall enough for square and vertical logos, wide logos are limited by the width */
+.supporter-logo img { height: 100%; width: auto; max-width: 100%; object-fit: contain; }
+.supporter-role { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); text-align: center; }
+
 /* Contacts page */
 .channels { margin: 1rem 0 0; border-top: 1px solid var(--line); }
 .content > p, .content > h2 { max-width: var(--measure); }
@@ -338,6 +348,8 @@ main { padding-block: 2.5rem 4rem; }
   .facts div + div { border-top: 1px solid var(--line); }
   .parallel { grid-template-columns: 1fr; }
   .modules { grid-template-columns: 1fr; }
+  .supporters { grid-template-columns: 1fr; }
+  .supporter-logo { height: 8rem; }
   .button { white-space: normal; }
   .phase { grid-template-columns: 1fr; gap: 0.75rem; }
   .phase-title { padding-top: 0; display: flex; align-items: baseline; gap: 0.6rem; }

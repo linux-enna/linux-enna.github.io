@@ -32,6 +32,23 @@ moduli:
     titolo: "Aziende e professionisti"
     testo: "Raccontate come usate l'open source alla tavola rotonda del pomeriggio."
     pulsante: "Modulo aziende"
+# Chi sostiene l'evento (shortcode {{< supporters >}}). Loghi in static/img/supporters/.
+# Ogni voce: nome, ruolo, url, logo (tema chiaro), logo_scuro (tema scuro, facoltativo).
+supporters:
+  - nome: "Università degli Studi di Enna \"Kore\""
+    ruolo: "Ospita l'evento"
+    url: "https://uke.it/"
+    logo: "/img/supporters/unikore.png"
+    logo_scuro: "/img/supporters/unikore-dark.png"
+  - nome: "Italian Linux Society"
+    ruolo: "Promuove il Linux Day"
+    url: "https://www.ils.org/"
+    logo: "/img/supporters/ils.svg"
+  - nome: "Linux Day 2026"
+    ruolo: "Evento nazionale"
+    url: "https://www.linuxday.it/"
+    logo: "/img/supporters/linuxday.png"
+    logo_scuro: "/img/supporters/linuxday-dark.png"
 nota_programma: "Programma di massima: titoli, ordine e orari saranno confermati nei prossimi giorni."
 
 # Ogni voce: titolo, tipo (talk | lab | tavola | servizio, default talk),
@@ -101,6 +118,10 @@ Per tutto il resto, la pagina [Contatti](/contatti/).
 Università Kore di Enna, Contrada Santa Panasia, Enna. Le indicazioni per le aule saranno disponibili all'ingresso.
 
 [Apri la mappa su OpenStreetMap](https://www.openstreetmap.org/node/12698650099#map=19/37.540615/14.284000) {{< alt prima="o su" url="https://maps.app.goo.gl/daCdNRGDZn4bxi8ZA" >}}Google Maps{{< /alt >}}
+
+## Promotori e supporto {#supporters}
+
+{{< supporters >}}
 
 ## Il Linux Day {#linuxday}
 
