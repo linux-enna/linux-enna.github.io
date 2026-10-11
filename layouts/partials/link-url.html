@@ -1,0 +1,11 @@
+{{- /* Risolve un link del front matter in un URL.
+     {modulo: "talk"}            -> indirizzo del modulo in hugo.toml (params.moduli)
+     {url: "email", oggetto: ..} -> mailto: con l'email di hugo.toml
+     {url: "..."}                -> l'URL così com'è */ -}}
+{{- $url := .url | default "" -}}
+{{- with .modulo }}{{ $url = index site.Params.moduli . }}{{ end -}}
+{{- if eq $url "email" -}}
+  {{- $url = printf "mailto:%s" site.Params.email -}}
+  {{- with .oggetto }}{{ $url = printf "%s?subject=%s" $url (replace (. | urlquery) "+" "%20") }}{{ end -}}
+{{- end -}}
+{{- return $url -}}

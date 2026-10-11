@@ -1,0 +1,16 @@
+{{- /* Riquadri con pulsante per i moduli, presi dal front matter "moduli" di una pagina.
+     Uso nel Markdown:
+       {{< moduli >}}                                   moduli della pagina corrente
+       {{< moduli da="/eventi/linux-day-2026" >}}       moduli di un'altra pagina (es. dai Contatti)
+     Ogni voce: modulo (chiave in hugo.toml, params.moduli), titolo, testo, pulsante, principale (true = pulsante arancio). */ -}}
+{{- $p := .Page -}}
+{{- with .Get "da" }}{{ $p = site.GetPage . }}{{ end -}}
+<div class="modules">
+  {{- range $p.Params.moduli }}
+  <div class="module">
+    <h3 class="module-title">{{ .titolo }}</h3>
+    {{ with .testo }}<p>{{ . | markdownify }}</p>{{ end }}
+    <a class="button{{ if not .principale }} button--outline{{ end }}" href="{{ index site.Params.moduli .modulo }}">{{ .pulsante }}</a>
+  </div>
+  {{- end }}
+</div>

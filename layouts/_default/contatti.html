@@ -6,7 +6,13 @@
     {{ with .Params.lead }}<p class="lead">{{ . }}</p>{{ end }}
   </div>
 
+  {{- /* Prima il testo della pagina (es. i moduli dell'evento in corso), poi i contatti fissi */}}
+  <div class="content">
+    {{ .Content }}
+  </div>
+
   {{- with .Params.canali }}
+  {{ with $.Params.titolo_canali }}<h2>{{ . }}</h2>{{ end }}
   <dl class="channels">
     {{- range . }}
     <div>
@@ -14,19 +20,13 @@
       <dd>
         {{ with .testo }}<p>{{ . | markdownify }}</p>{{ end }}
         {{- with .link }}
-        {{- $url := .url }}
-        {{- if eq .url "email" }}{{ $url = printf "mailto:%s" site.Params.email }}{{ with .oggetto }}{{ $url = printf "%s?subject=%s" $url (replace (. | urlquery) "+" "%20") }}{{ end }}{{ end }}
-        <a class="channel-link" href="{{ $url }}">{{ .testo | default (cond (eq .url "email") site.Params.email .url) }}</a>
+        <a class="channel-link" href="{{ partial "link-url.html" . }}">{{ .testo | default (cond (eq .url "email") site.Params.email .url) }}</a>
         {{- end }}
-        {{- with .alt }}<span class="alt"> o <a href="{{ .url }}">{{ .testo }}</a></span>{{ end }}
+        {{- with .alt }}<span class="alt"> o <a href="{{ partial "link-url.html" . }}">{{ .testo | default site.Params.email }}</a></span>{{ end }}
       </dd>
     </div>
     {{- end }}
   </dl>
   {{- end }}
-
-  <div class="prose content">
-    {{ .Content }}
-  </div>
 </div>
 {{ end }}

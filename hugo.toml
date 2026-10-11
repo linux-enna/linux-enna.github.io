@@ -13,6 +13,14 @@ disableKinds = ["taxonomy", "term"]
   # Numero di annunci mostrati in home
   homeNews = 5
 
+# Moduli su forms.mlaquatra.me. Nei contenuti si usano con {{< modulo "nome" >}}testo{{< /modulo >}}
+# o, nel front matter, con link: {modulo: "nome", testo: "..."}.
+[params.moduli]
+  partecipa = "https://forms.mlaquatra.me/f/linux/ld26/partecipa"
+  volontari = "https://forms.mlaquatra.me/f/linux/ld26/volontari"
+  talk = "https://forms.mlaquatra.me/f/linux/ld26/proponi-talk"
+  aziende = "https://forms.mlaquatra.me/f/linux/ld26/aziende"
+
 [[menus.main]]
   name = "Home"
   pageRef = "/"

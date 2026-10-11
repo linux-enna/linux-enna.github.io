@@ -12,12 +12,31 @@ mappa: "https://www.openstreetmap.org/node/12698650099#map=19/37.540615/14.28400
 # Link secondario, mostrato in piccolo dopo OpenStreetMap
 mappa_google: "https://maps.app.goo.gl/daCdNRGDZn4bxi8ZA"
 ingresso: "Libero e gratuito"
-# Pagina del modulo "Dicci che ci sei": il pulsante compare solo quando la pagina è pubblicata
-partecipa: "/partecipa"
+# Riquadri con pulsante della sezione "Partecipa" (shortcode {{< moduli >}}).
+# modulo = chiave in hugo.toml (params.moduli); principale: true = pulsante arancio.
+moduli:
+  - modulo: "partecipa"
+    titolo: "Vieni al Linux Day"
+    testo: "L'ingresso è libero. Dicci che ci sei: ci aiuta a preparare aule e postazioni."
+    pulsante: "Modulo di partecipazione"
+    principale: true
+  - modulo: "volontari"
+    titolo: "Dai una mano"
+    testo: "Cerchiamo volontari per accoglienza e installation party. Non serve essere esperti."
+    pulsante: "Modulo volontari"
+  - modulo: "talk"
+    titolo: "Proponi un talk o una demo"
+    testo: "C'è ancora uno spazio nel programma. Raccontaci la tua idea."
+    pulsante: "Modulo proposte di talk"
+  - modulo: "aziende"
+    titolo: "Aziende e professionisti"
+    testo: "Raccontate come usate l'open source alla tavola rotonda del pomeriggio."
+    pulsante: "Modulo aziende"
 nota_programma: "Programma di massima: titoli, ordine e orari saranno confermati nei prossimi giorni."
 
 # Ogni voce: titolo, tipo (talk | lab | tavola | servizio, default talk),
-# relatore, nota, da_confermare: true, link: {testo, url} (tutti facoltativi tranne titolo).
+# relatore, nota, da_confermare: true, link (tutti facoltativi tranne titolo).
+# link: {testo, url} oppure {testo, modulo: "talk"} per un modulo definito in hugo.toml.
 # "parallelo" raggruppa le voci che si svolgono in contemporanea.
 programma:
   - parte: "Mattina"
@@ -31,6 +50,9 @@ programma:
         relatore: "Moreno La Quatra"
       - titolo: "Terzo talk"
         da_confermare: true
+        link:
+          testo: "Modulo proposte di talk"
+          modulo: "talk"
   - parte: "Pomeriggio"
     sottotitolo: "pratica e confronto"
     voci:
@@ -46,6 +68,9 @@ programma:
       - titolo: "L'open source nelle aziende del territorio"
         tipo: tavola
         da_confermare: true
+        link:
+          testo: "Modulo aziende"
+          modulo: "aziende"
       - titolo: "Chiusura"
         tipo: servizio
 ---
@@ -65,9 +90,11 @@ info | Indeciso? Puoi provare Linux da chiavetta, senza installare nulla.
 
 ## Partecipa {#partecipa}
 
-Non serve iscriversi: l'ingresso è libero per tutta la giornata.
+L'ingresso è libero per tutta la giornata e i moduli sono facoltativi: ci aiutano solo a organizzarci meglio.
 
-Cerchiamo **volontari** per accoglienza e installation party, e siamo aperti a proposte di talk e demo. Trovi come scriverci nella pagina [Contatti](/contatti/).
+{{< moduli >}}
+
+Per tutto il resto, la pagina [Contatti](/contatti/).
 
 ## Come arrivare {#dove}
 

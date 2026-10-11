@@ -15,7 +15,10 @@
       <h2 id="evento">{{ .Title }}</h2>
       <p>{{ .Params.summary }}</p>
     </div>
-    <a class="button" href="{{ .RelPermalink }}">Programma e informazioni</a>
+    <div class="feature-actions">
+      <a class="button" href="{{ .RelPermalink }}">Programma e informazioni</a>
+      {{- with site.Params.moduli.partecipa }}<a class="feature-link" href="{{ . }}">Modulo di partecipazione</a>{{ end }}
+    </div>
   </section>
   {{- end }}
   {{- end }}

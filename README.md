@@ -22,8 +22,7 @@ Questa guida vale per le persone e per i coding agent. Le [regole](#regole-per-c
 | Annunci | `content/annunci/`, uno per file |
 | Linux Day 2026: date, programma, testi | `content/eventi/linux-day-2026.md` |
 | Pagina contatti | `content/contatti.md` |
-| Modulo "Ci vieni al Linux Day?" (bozza) | `content/partecipa/_index.md` |
-| Informativa privacy (bozza) | `content/privacy.md` |
+| Indirizzi dei moduli | `hugo.toml`, `[params.moduli]` |
 | Menu, email di contatto, link | `hugo.toml` |
 | Colori e stile | `assets/css/style.css` |
 | Struttura delle pagine | `layouts/` |
@@ -48,7 +47,7 @@ Nel file dell'evento, il campo `programma` è diviso in parti (mattina, pomerigg
 | `relatore` | nome di chi parla |
 | `nota` | una riga in più |
 | `da_confermare: true` | aggiunge l'etichetta "da confermare" |
-| `link` | `{testo: "...", url: "..."}`, un link sotto la voce |
+| `link` | un link sotto la voce: `{testo: "...", url: "..."}` oppure `{testo: "...", modulo: "talk"}` |
 
 Le voci che si svolgono in contemporanea vanno dentro `parallelo`. Gli orari per ora non sono mostrati: il programma è "di massima".
 
@@ -76,23 +75,25 @@ Nel front matter dell'evento c'è `mappa_google`, nella pagina contatti il campo
 
 ### Pagina contatti
 
-Ogni riga è una voce di `canali` in `content/contatti.md`. Con `url: "email"` il link usa l'indirizzo di `hugo.toml`; `oggetto` precompila l'oggetto della mail.
+La pagina mostra prima il testo in `content/contatti.md` (oggi i moduli del Linux Day, da togliere a evento concluso), poi i contatti fissi sotto "Resta in contatto": Discord, sito, email, RSS. Solo contatti stabili: niente sedi o mappe finché il gruppo non ne ha una.
+
+Ogni contatto fisso è una voce di `canali`, con un `link` principale e un `alt` secondario facoltativo. Un link può puntare a un modulo (`modulo: "talk"`), a una mail (`url: "email"`, con `oggetto` facoltativo che precompila l'oggetto) o a un URL qualsiasi.
 
 ### Nuova edizione del Linux Day
 
 Copia `content/eventi/linux-day-2026.md` in `linux-day-2027.md`, cambia `url` in `/2027/`, sposta `in_evidenza: true` sulla nuova edizione e aggiorna il menu in `hugo.toml`.
 
-## Modulo di partecipazione
+## Moduli
 
-La pagina `/partecipa/` è pronta ma è una **bozza** e non viene pubblicata. Hugo genera solo pagine statiche, quindi il modulo ha bisogno di un servizio esterno che riceva e salvi le risposte. Per attivarlo:
+I moduli (partecipazione, volontari, proposte di talk, aziende) non sono nel sito: stanno sul servizio **forms.mlaquatra.me**, che raccoglie le risposte, manda le email di conferma e ospita l'informativa privacy (`https://forms.mlaquatra.me/privacy/linux`). Il sito li collega e basta.
 
-1. Scegli e configura il servizio, poi metti il suo indirizzo in `endpoint` in `content/partecipa/_index.md`.
-2. Completa l'informativa in `content/privacy.md`, togliendo tutti i segnaposto tra parentesi quadre, e fai verificare il testo.
-3. Togli `draft: true` da modulo, pagina di ringraziamento (`content/partecipa/grazie.md`) e informativa.
-
-Il pulsante "Dicci che ci sei" sulla pagina del Linux Day compare da solo quando il modulo è pubblicato e ha un `endpoint`.
-
-Campi inviati con POST: `nome`, `email`, `profilo`, `attivita` (anche ripetuto), `computer`, `computer_modello`, `note`, `consenso_privacy`, `consenso_eventi`, `evento`, `redirect`. Il campo `website` è una trappola per bot: se è compilato, la risposta va scartata.
+- Gli indirizzi sono in un solo punto, `hugo.toml`, sotto `[params.moduli]` (`partecipa`, `volontari`, `talk`, `aziende`). Se un modulo cambia indirizzo, si cambia solo lì.
+- Nei testi in Markdown: `{{</* modulo "volontari" */>}}Candidati come volontario{{</* /modulo */>}}`.
+- Nel front matter (programma, contatti): `link: {testo: "...", modulo: "talk"}`.
+- Riquadri con pulsante: lo shortcode `{{</* moduli */>}}` mostra i moduli elencati nel campo `moduli` del front matter della pagina (modulo, titolo, testo, pulsante, `principale: true` per il pulsante arancio). Con `{{</* moduli da="/eventi/linux-day-2026" */>}}` mostra quelli di un'altra pagina: così li usano sia la sezione "Partecipa" del Linux Day sia i Contatti, da un'unica lista.
+- Il pulsante "Modulo di partecipazione" (pagina del Linux Day e riquadro in home) usa `moduli.partecipa` e sparisce se lo togli.
+- Nomi da usare per i pulsanti, sempre uguali in tutto il sito: "Modulo di partecipazione", "Modulo volontari", "Modulo proposte di talk", "Modulo aziende".
+- Le definizioni JSON dei moduli non stanno in questo repository. Modifiche a domande, date di chiusura o email di conferma si fanno sul servizio.
 
 ## Regole per chi modifica il sito
 
@@ -105,7 +106,7 @@ Vengono dalle [linee guida del Linux Day](https://www.linuxday.it/2026/lineeguid
 - **Ingresso libero e gratuito.** Non scrivere mai che l'iscrizione è obbligatoria. Il modulo è facoltativo e deve dirlo.
 - **Nome dell'evento:** sempre "Linux Day", ad esempio "Linux Day Enna 2026". Nessuna variante.
 - **Niente pubblicità di aziende o prodotti.**
-- **Niente dati personali nel repository, che è pubblico.** Risposte ai moduli, liste di contatti e link privati (Drive, Discord, moduli interni) non vanno committati. `NOTE-ORGANIZZAZIONE.md` è solo locale e in `.gitignore`: si può leggere per il contesto, non copiare nel sito.
+- **Niente dati personali nel repository, che è pubblico.** Risposte ai moduli, liste di contatti e link privati (Drive, moduli interni, inviti a canali riservati agli organizzatori) non vanno committati. L'unico invito Discord pubblico è quello della pagina Contatti. `NOTE-ORGANIZZAZIONE.md` è solo locale e in `.gitignore`: si può leggere per il contesto, non copiare nel sito.
 - **Niente informazioni non confermate presentate come certe.** Usa `da_confermare: true`. Non inventare orari, relatori, aule o numeri.
 - **Il sito funziona senza JavaScript.** JS solo come miglioramento (oggi solo `static/js/theme.js`). Niente framework, bundler o dipendenze npm.
 
@@ -139,7 +140,7 @@ Vengono dalle [linee guida del Linux Day](https://www.linuxday.it/2026/lineeguid
 - Nessun trattino lungo o virgoletta tipografica (U+2013, U+2014, U+2018, U+2019, U+201C, U+201D) nei file modificati.
 - `public/`, `resources/` e `NOTE-ORGANIZZAZIONE.md` non vanno committati (sono in `.gitignore`).
 - Messaggi di commit brevi, in italiano.
-- **Coding agent:** niente push senza il via libera esplicito di chi ha chiesto la modifica, perché il push pubblica subito. Non pubblicare modulo e informativa e non scegliere il servizio del modulo senza chiedere.
+- **Coding agent:** niente push senza il via libera esplicito di chi ha chiesto la modifica, perché il push pubblica subito. Non aggiungere moduli o servizi di raccolta dati diversi da forms.mlaquatra.me senza chiedere.
 
 ## Tema chiaro e scuro
 

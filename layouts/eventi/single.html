@@ -9,10 +9,8 @@
       {{ with .Params.dove }}<div><dt>Dove</dt><dd>{{ . }}{{ with $.Params.mappa }}<span class="facts-links"><a href="{{ . }}">apri la mappa</a>{{ with $.Params.mappa_google }}<span class="alt"> o <a href="{{ . }}">Google Maps</a></span>{{ end }}</span>{{ end }}</dd></div>{{ end }}
       {{ with .Params.ingresso }}<div><dt>Ingresso</dt><dd>{{ . }}</dd></div>{{ end }}
     </dl>
-    {{- with .Params.partecipa }}
-    {{- with site.GetPage . }}{{ if and (not .Draft) .Params.endpoint }}
-    <p class="event-cta"><a class="button" href="{{ .RelPermalink }}">Dicci che ci sei</a> <span class="note">Facoltativo: ci aiuta a organizzare la giornata.</span></p>
-    {{- end }}{{ end }}
+    {{- with site.Params.moduli.partecipa }}
+    <p class="event-cta"><a class="button" href="{{ . }}">Modulo di partecipazione</a> <span class="note">Dicci che ci sei: l'ingresso è libero, ma ci aiuta a organizzare la giornata.</span></p>
     {{- end }}
   </section>
 

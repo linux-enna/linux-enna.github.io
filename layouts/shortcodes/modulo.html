@@ -1,0 +1,3 @@
+{{- /* Link a un modulo definito in hugo.toml (params.moduli).
+     Uso: {{< modulo "volontari" >}}candidati come volontario{{< /modulo >}} */ -}}
+<a href="{{ index site.Params.moduli (.Get 0) }}">{{ .Inner }}</a>
