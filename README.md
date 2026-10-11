@@ -43,7 +43,7 @@ Nel file dell'evento, il campo `programma` è diviso in parti (mattina, pomerigg
 | Campo | Significato |
 |---|---|
 | `titolo` | obbligatorio |
-| `tipo` | `talk` (default), `lab`, `tavola`, `servizio`: cambia colore ed etichetta |
+| `tipo` | `talk` (default), `demo`, `lab`, `tavola`, `servizio`: cambia colore ed etichetta |
 | `relatore` | nome di chi parla |
 | `nota` | una riga in più |
 | `da_confermare: true` | aggiunge l'etichetta "da confermare" |

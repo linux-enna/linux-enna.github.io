@@ -236,7 +236,8 @@ main { padding-block: 2.5rem 4rem; }
 .card { display: flex; flex-direction: column; gap: 0.15rem; height: 100%; padding: 0.9rem 1.1rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
 .card-title { font-weight: 600; font-size: 1.05rem; line-height: 1.35; }
 .who { display: block; color: var(--muted); font-size: 0.95rem; }
-.card-note { font-size: 0.95rem; }
+.card-note { margin-top: 0.35rem; font-size: 0.875rem; line-height: 1.5; color: var(--muted); }
+.card--lab .card-note, .card--tavola .card-note { color: inherit; opacity: 0.85; }
 .card-link { margin-top: 0.4rem; font-family: var(--mono); font-size: 0.85rem; }
 .card-link::after { content: " ->"; }
 .kind { font-family: var(--mono); font-size: 0.75rem; color: var(--link); letter-spacing: 0.03em; }

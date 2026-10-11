@@ -51,7 +51,7 @@ supporters:
     logo_scuro: "/img/supporters/linuxday-dark.png"
 nota_programma: "Programma di massima: titoli, ordine e orari saranno confermati nei prossimi giorni."
 
-# Ogni voce: titolo, tipo (talk | lab | tavola | servizio, default talk),
+# Ogni voce: titolo, tipo (talk | demo | lab | tavola | servizio, default talk),
 # relatore, nota, da_confermare: true, link (tutti facoltativi tranne titolo).
 # link: {testo, url} oppure {testo, modulo: "talk"} per un modulo definito in hugo.toml.
 # "parallelo" raggruppa le voci che si svolgono in contemporanea.
@@ -61,10 +61,12 @@ programma:
     voci:
       - titolo: "Accoglienza e apertura della giornata"
         tipo: servizio
-      - titolo: "Container e self-hosting"
+      - titolo: "Fare a meno del cloud"
         relatore: "Christophe Sollami"
-      - titolo: "LLM, open weights e open source"
+        nota: "Ogni giorno affidiamo dati e servizi a piattaforme che non controlliamo. Il talk racconta il self-hosting, cioè ospitare i propri servizi su un proprio server, e mostra passo dopo passo come farlo con i container. Per sapere dove sono i propri dati e decidere in prima persona come gestirli."
+      - titolo: "Liberi di usare l'AI"
         relatore: "Moreno La Quatra"
+        nota: "Molti modelli di intelligenza artificiale si definiscono aperti, ma cosa possiamo farci davvero? Il talk spiega la differenza tra open source e open weights, cosa cambia per chi li usa e come far girare un modello sul proprio computer, senza dipendere da un servizio esterno."
       - titolo: "Terzo talk"
         da_confermare: true
         link:
@@ -74,8 +76,10 @@ programma:
     sottotitolo: "pratica e confronto"
     voci:
       - parallelo:
-          - titolo: "Talk di robotica"
+          - titolo: "Robotica e Open Source"
+            tipo: demo
             relatore: "Giuseppe Sutera"
+            nota: "Una dimostrazione dal vivo di come Linux e il software open source vengono usati nella robotica, dal controllo dei sensori al software che guida il robot."
           - titolo: "Linux installation party"
             tipo: lab
             nota: "Per tutto il pomeriggio. Porta il tuo computer e installiamo Linux insieme."
