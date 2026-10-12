@@ -47,6 +47,7 @@ Nel file dell'evento, il campo `programma` è diviso in parti (mattina, pomerigg
 | `relatore` | nome di chi parla |
 | `nota` | una riga in più |
 | `da_confermare: true` | aggiunge l'etichetta "da confermare" |
+| `immagine`, `immagine_alt` | piccola illustrazione tra descrizione e link della voce, con sfondo trasparente (file in `static/2026/`) e testo alternativo |
 | `link` | un link sotto la voce: `{testo: "...", url: "..."}` oppure `{testo: "...", modulo: "talk"}` |
 
 Le voci che si svolgono in contemporanea vanno dentro `parallelo`. Gli orari per ora non sono mostrati: il programma è "di massima".
@@ -78,6 +79,10 @@ Nel front matter dell'evento c'è `mappa_google`, nella pagina contatti il campo
 La pagina mostra prima il testo in `content/contatti.md` (oggi i moduli del Linux Day, da togliere a evento concluso), poi i contatti fissi sotto "Resta in contatto": Discord, sito, email, RSS. Solo contatti stabili: niente sedi o mappe finché il gruppo non ne ha una.
 
 Ogni contatto fisso è una voce di `canali`, con un `link` principale e un `alt` secondario facoltativo. Un link può puntare a un modulo (`modulo: "talk"`), a una mail (`url: "email"`, con `oggetto` facoltativo che precompila l'oggetto) o a un URL qualsiasi.
+
+### Locandina
+
+Le locandine stanno in `static/2026/`, quindi sono online in `https://linux-enna.github.io/2026/<nome-file>`. Oggi sono due: quella con i QR code (`locandina-linux-day-enna-2026-generale.pdf` e `.jpg`) e quella di Enna (`locandina-linux-day-enna-2026.png` e `.jpg`), ognuna con un'anteprima da 640 px. Nella pagina del Linux Day le mostra lo shortcode `{{</* locandina */>}}`, che legge la lista `locandine` del front matter (titolo, anteprima, alt, file). Il campo `immagine_social` sceglie l'immagine mostrata quando la pagina viene condivisa. Per sostituire una locandina, sovrascrivi i file mantenendo gli stessi nomi, così i link già condivisi continuano a funzionare.
 
 ### Supporters
 

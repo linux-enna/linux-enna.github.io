@@ -1,0 +1,23 @@
+{{- /* Locandine dell'evento, dal front matter "locandine" della pagina.
+     Uso nel Markdown: {{< locandina >}}
+     Ogni voce: titolo, anteprima, alt, file (lista di {formato, url, nota}).
+     Il primo file è quello aperto cliccando l'anteprima. */ -}}
+<p>Aiutaci a far girare la voce: scaricale, stampale o condividile.</p>
+<div class="posters">
+  {{- range .Page.Params.locandine }}
+  {{- $main := index .file 0 }}
+  <figure class="poster">
+    <a class="poster-image" href="{{ $main.url | relURL }}">
+      <img src="{{ .anteprima | relURL }}" alt="{{ .alt }}" width="640" height="905" loading="lazy">
+    </a>
+    <figcaption>
+      <p class="poster-title">{{ .titolo }}</p>
+      <p class="poster-links">
+        {{- range $i, $f := .file }}
+        {{- if $i }} <span class="poster-sep">·</span> {{ end }}<a href="{{ $f.url | relURL }}" download>{{ $f.formato }}</a>{{ with $f.nota }} <span class="alt">{{ . }}</span>{{ end }}
+        {{- end }}
+      </p>
+    </figcaption>
+  </figure>
+  {{- end }}
+</div>

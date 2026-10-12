@@ -49,10 +49,33 @@ supporters:
     url: "https://www.linuxday.it/"
     logo: "/img/supporters/linuxday.png"
     logo_scuro: "/img/supporters/linuxday-dark.png"
+# Locandine (shortcode {{< locandina >}}); i file stanno in static/2026/, quindi sono online in /2026/.
+# Il primo file di ogni locandina è quello aperto cliccando l'anteprima.
+locandine:
+  - titolo: "Linux Day Enna 2026 - QR Code"
+    anteprima: "/2026/locandina-generale-anteprima.jpg"
+    alt: "Locandina del Linux Day Enna 2026: sabato 24 ottobre dalle 10:00, Università Kore di Enna, ingresso libero e gratuito. Cloud, AI e Robotica, Linux Installation Party, QR code per partecipazione, volontari e programma"
+    file:
+      - formato: "PDF"
+        url: "/2026/locandina-linux-day-enna-2026-generale.pdf"
+        nota: "per la stampa"
+      - formato: "JPG"
+        url: "/2026/locandina-linux-day-enna-2026-generale.jpg"
+  - titolo: "Linux Day Enna 2026"
+    anteprima: "/2026/locandina-anteprima.jpg"
+    alt: "Locandina del Linux Day Enna 2026: 24 ottobre 2026 dalle 10:00, talk, demo e installation party, C.da Santa Panasia, Università Kore di Enna"
+    file:
+      - formato: "PNG"
+        url: "/2026/locandina-linux-day-enna-2026.png"
+      - formato: "JPG"
+        url: "/2026/locandina-linux-day-enna-2026.jpg"
+        nota: "più leggero"
+# Immagine di anteprima quando la pagina viene condivisa
+immagine_social: "/2026/locandina-linux-day-enna-2026-generale.jpg"
 nota_programma: "Programma di massima: titoli, ordine e orari saranno confermati nei prossimi giorni."
 
 # Ogni voce: titolo, tipo (talk | demo | lab | tavola | servizio, default talk),
-# relatore, nota, da_confermare: true, link (tutti facoltativi tranne titolo).
+# relatore, nota, da_confermare: true, link, immagine e immagine_alt (tutti facoltativi tranne titolo).
 # link: {testo, url} oppure {testo, modulo: "talk"} per un modulo definito in hugo.toml.
 # "parallelo" raggruppa le voci che si svolgono in contemporanea.
 programma:
@@ -63,10 +86,10 @@ programma:
         tipo: servizio
       - titolo: "Fare a meno del cloud"
         relatore: "Christophe Sollami"
-        nota: "Ogni giorno affidiamo dati e servizi a piattaforme che non controlliamo. Il talk racconta il self-hosting, cioè ospitare i propri servizi su un proprio server, e mostra passo dopo passo come farlo con i container. Per sapere dove sono i propri dati e decidere in prima persona come gestirli."
+        nota: "Foto, documenti e servizi online: ogni giorno affidiamo sempre più dati a piattaforme esterne. Ma è davvero necessario? Il self-hosting offre un'alternativa: ospitare i propri servizi su un server personale, mantenendo il controllo sui dati. Attraverso esempi pratici, il talk mostra come iniziare a farlo utilizzando i container, senza dover dipendere necessariamente dai grandi provider cloud."
       - titolo: "Liberi di usare l'AI"
         relatore: "Moreno La Quatra"
-        nota: "Molti modelli di intelligenza artificiale si definiscono aperti, ma cosa possiamo farci davvero? Il talk spiega la differenza tra open source e open weights, cosa cambia per chi li usa e come far girare un modello sul proprio computer, senza dipendere da un servizio esterno."
+        nota: "L'intelligenza artificiale è davvero aperta a tutti? Sempre più modelli vengono presentati come open, ma non tutti garantiscono le stesse libertà. Il talk chiarisce la differenza tra open source e open weights, spiegando cosa possiamo realmente fare con questi modelli e quali limitazioni possono avere. Vedremo inoltre come eseguire un modello di intelligenza artificiale direttamente sul proprio computer, senza affidarsi a servizi esterni."
       - titolo: "Terzo talk"
         da_confermare: true
         link:
@@ -79,10 +102,12 @@ programma:
           - titolo: "Robotica e Open Source"
             tipo: demo
             relatore: "Giuseppe Sutera"
-            nota: "Una dimostrazione dal vivo di come Linux e il software open source vengono usati nella robotica, dal controllo dei sensori al software che guida il robot."
+            nota: "Come si passa dal codice al movimento di un robot? E quale ruolo hanno Linux e il software libero? Una dimostrazione dal vivo di come le tecnologie open source vengono utilizzate nella robotica: dalla lettura dei sensori al controllo dei movimenti, fino al software che coordina il funzionamento del robot. Un'occasione per vedere questi strumenti in azione e comprenderne le applicazioni pratiche."
           - titolo: "Linux installation party"
             tipo: lab
-            nota: "Per tutto il pomeriggio. Porta il tuo computer e installiamo Linux insieme."
+            nota: "Durante il pomeriggio, porta il tuo computer e installiamo Linux insieme."
+            immagine: "/2026/installation-party.png"
+            immagine_alt: "Tre persone intorno a un portatile che installa Linux"
             link:
               testo: "Come funziona"
               url: "#installation-party"
@@ -122,6 +147,10 @@ Per tutto il resto, la pagina [Contatti](/contatti/).
 Università Kore di Enna, Contrada Santa Panasia, Enna. Le indicazioni per le aule saranno disponibili all'ingresso.
 
 [Apri la mappa su OpenStreetMap](https://www.openstreetmap.org/node/12698650099#map=19/37.540615/14.284000) {{< alt prima="o su" url="https://maps.app.goo.gl/daCdNRGDZn4bxi8ZA" >}}Google Maps{{< /alt >}}
+
+## Locandine {#locandina}
+
+{{< locandina >}}
 
 ## Promotori e supporto {#supporters}
 
