@@ -1,13 +1,14 @@
 {{- /* Locandine dell'evento, dal front matter "locandine" della pagina.
      Uso nel Markdown: {{< locandina >}}
-     Ogni voce: titolo, anteprima, alt, file (lista di {formato, url, nota}).
-     Il primo file è quello aperto cliccando l'anteprima. */ -}}
+     Ogni voce: titolo, anteprima, grande (immagine mostrata a tutto schermo), alt, file (lista di {formato, url, nota}).
+     Cliccando l'anteprima si apre "grande" a tutto schermo (static/js/lightbox.js);
+     senza JavaScript il link apre direttamente l'immagine. */ -}}
 <p>Aiutaci a far girare la voce: scaricale, stampale o condividile.</p>
 <div class="posters">
   {{- range .Page.Params.locandine }}
-  {{- $main := index .file 0 }}
+  {{- $big := .grande | default (index .file 0).url }}
   <figure class="poster">
-    <a class="poster-image" href="{{ $main.url | relURL }}">
+    <a class="poster-image" href="{{ $big | relURL }}" data-lightbox aria-label="Apri a tutto schermo: {{ .titolo }}">
       <img src="{{ .anteprima | relURL }}" alt="{{ .alt }}" width="640" height="905" loading="lazy">
     </a>
     <figcaption>

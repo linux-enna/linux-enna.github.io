@@ -82,7 +82,7 @@ Ogni contatto fisso è una voce di `canali`, con un `link` principale e un `alt`
 
 ### Locandina
 
-Le locandine stanno in `static/2026/`, quindi sono online in `https://linux-enna.github.io/2026/<nome-file>`. Oggi sono due: quella con i QR code (`locandina-linux-day-enna-2026-generale.pdf` e `.jpg`) e quella di Enna (`locandina-linux-day-enna-2026.png` e `.jpg`), ognuna con un'anteprima da 640 px. Nella pagina del Linux Day le mostra lo shortcode `{{</* locandina */>}}`, che legge la lista `locandine` del front matter (titolo, anteprima, alt, file). Il campo `immagine_social` sceglie l'immagine mostrata quando la pagina viene condivisa. Per sostituire una locandina, sovrascrivi i file mantenendo gli stessi nomi, così i link già condivisi continuano a funzionare.
+Le locandine stanno in `static/2026/`, quindi sono online in `https://linux-enna.github.io/2026/<nome-file>`. Oggi sono due: quella con i QR code (`locandina-linux-day-enna-2026-generale.pdf` e `.jpg`) e quella di Enna (`locandina-linux-day-enna-2026.png` e `.jpg`), ognuna con un'anteprima da 640 px. Nella pagina del Linux Day le mostra lo shortcode `{{</* locandina */>}}`, che legge la lista `locandine` del front matter (titolo, anteprima, `grande` per la vista a tutto schermo, alt, file). Il campo `immagine_social` sceglie l'immagine mostrata quando la pagina viene condivisa. Per sostituire una locandina, sovrascrivi i file mantenendo gli stessi nomi, così i link già condivisi continuano a funzionare.
 
 ### Supporters
 
@@ -119,7 +119,7 @@ Vengono dalle [linee guida del Linux Day](https://www.linuxday.it/2026/lineeguid
 - **Niente pubblicità di aziende o prodotti.**
 - **Niente dati personali nel repository, che è pubblico.** Risposte ai moduli, liste di contatti e link privati (Drive, moduli interni, inviti a canali riservati agli organizzatori) non vanno committati. L'unico invito Discord pubblico è quello della pagina Contatti. `NOTE-ORGANIZZAZIONE.md` è solo locale e in `.gitignore`: si può leggere per il contesto, non copiare nel sito.
 - **Niente informazioni non confermate presentate come certe.** Usa `da_confermare: true`. Non inventare orari, relatori, aule o numeri.
-- **Il sito funziona senza JavaScript.** JS solo come miglioramento (oggi solo `static/js/theme.js`). Niente framework, bundler o dipendenze npm.
+- **Il sito funziona senza JavaScript.** JS solo come miglioramento (oggi `static/js/theme.js` per il tema e `static/js/lightbox.js` per aprire le locandine a tutto schermo). Niente framework, bundler o dipendenze npm.
 
 ### Testi
 

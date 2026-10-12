@@ -24,6 +24,7 @@
   {{- $css := resources.Get "css/style.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
   <script src="{{ "js/theme.js" | relURL }}" defer></script>
+  <script src="{{ "js/lightbox.js" | relURL }}" defer></script>
 </head>
 <body>
   <a class="skip" href="#contenuto">Vai al contenuto</a>

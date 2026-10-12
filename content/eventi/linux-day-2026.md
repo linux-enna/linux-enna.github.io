@@ -50,10 +50,11 @@ supporters:
     logo: "/img/supporters/linuxday.png"
     logo_scuro: "/img/supporters/linuxday-dark.png"
 # Locandine (shortcode {{< locandina >}}); i file stanno in static/2026/, quindi sono online in /2026/.
-# Il primo file di ogni locandina è quello aperto cliccando l'anteprima.
+# "grande" è l'immagine mostrata a tutto schermo cliccando l'anteprima.
 locandine:
   - titolo: "Linux Day Enna 2026 - QR Code"
     anteprima: "/2026/locandina-generale-anteprima.jpg"
+    grande: "/2026/locandina-linux-day-enna-2026-generale.jpg"
     alt: "Locandina del Linux Day Enna 2026: sabato 24 ottobre dalle 10:00, Università Kore di Enna, ingresso libero e gratuito. Cloud, AI e Robotica, Linux Installation Party, QR code per partecipazione, volontari e programma"
     file:
       - formato: "PDF"
@@ -63,6 +64,7 @@ locandine:
         url: "/2026/locandina-linux-day-enna-2026-generale.jpg"
   - titolo: "Linux Day Enna 2026"
     anteprima: "/2026/locandina-anteprima.jpg"
+    grande: "/2026/locandina-linux-day-enna-2026.jpg"
     alt: "Locandina del Linux Day Enna 2026: 24 ottobre 2026 dalle 10:00, talk, demo e installation party, C.da Santa Panasia, Università Kore di Enna"
     file:
       - formato: "PNG"
