@@ -82,7 +82,7 @@ Ogni contatto fisso è una voce di `canali`, con un `link` principale e un `alt`
 
 ### Locandina
 
-Le locandine stanno in `static/2026/`, quindi sono online in `https://linux-enna.github.io/2026/<nome-file>`. Oggi sono due: quella con i QR code (`locandina-linux-day-enna-2026-generale.pdf` e `.jpg`) e quella di Enna (`locandina-linux-day-enna-2026.png` e `.jpg`), ognuna con un'anteprima da 640 px. Nella pagina del Linux Day le mostra lo shortcode `{{</* locandina */>}}`, che legge la lista `locandine` del front matter (titolo, anteprima, `grande` per la vista a tutto schermo, alt, file). Il campo `immagine_social` sceglie l'immagine mostrata quando la pagina viene condivisa. Per sostituire una locandina, sovrascrivi i file mantenendo gli stessi nomi, così i link già condivisi continuano a funzionare.
+Le locandine stanno in `static/2026/`, quindi sono online in `https://linux-enna.github.io/2026/<nome-file>`. Oggi sono due: quella con i QR code (`locandina-linux-day-enna-2026-generale.pdf`, `.png` e `.jpg`) e quella di Enna (`locandina-linux-day-enna-2026.png` e `.jpg`), ognuna con un'anteprima da 640 px. Nella pagina del Linux Day le mostra lo shortcode `{{</* locandina */>}}`, che legge la lista `locandine` del front matter (titolo, anteprima, `grande` per la vista a tutto schermo, alt, file). Per `grande` (la vista a tutto schermo) usa sempre il PNG originale, non un JPG ricompresso: i QR code devono restare nitidi. Il JPG serve solo come download leggero. Il campo `immagine_social` sceglie l'immagine mostrata quando la pagina viene condivisa. Per sostituire una locandina, sovrascrivi i file mantenendo gli stessi nomi, così i link già condivisi continuano a funzionare.
 
 ### Supporters
 

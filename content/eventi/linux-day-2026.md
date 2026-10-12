@@ -54,17 +54,20 @@ supporters:
 locandine:
   - titolo: "Linux Day Enna 2026 - QR Code"
     anteprima: "/2026/locandina-generale-anteprima.jpg"
-    grande: "/2026/locandina-linux-day-enna-2026-generale.jpg"
+    grande: "/2026/locandina-linux-day-enna-2026-generale.png"
     alt: "Locandina del Linux Day Enna 2026: sabato 24 ottobre dalle 10:00, Università Kore di Enna, ingresso libero e gratuito. Cloud, AI e Robotica, Linux Installation Party, QR code per partecipazione, volontari e programma"
     file:
       - formato: "PDF"
         url: "/2026/locandina-linux-day-enna-2026-generale.pdf"
         nota: "per la stampa"
+      - formato: "PNG"
+        url: "/2026/locandina-linux-day-enna-2026-generale.png"
       - formato: "JPG"
         url: "/2026/locandina-linux-day-enna-2026-generale.jpg"
+        nota: "più leggero"
   - titolo: "Linux Day Enna 2026"
     anteprima: "/2026/locandina-anteprima.jpg"
-    grande: "/2026/locandina-linux-day-enna-2026.jpg"
+    grande: "/2026/locandina-linux-day-enna-2026.png"
     alt: "Locandina del Linux Day Enna 2026: 24 ottobre 2026 dalle 10:00, talk, demo e installation party, C.da Santa Panasia, Università Kore di Enna"
     file:
       - formato: "PNG"
