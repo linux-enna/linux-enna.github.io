@@ -64,7 +64,6 @@ locandine:
         url: "/2026/locandina-linux-day-enna-2026-generale.png"
       - formato: "JPG"
         url: "/2026/locandina-linux-day-enna-2026-generale.jpg"
-        nota: "più leggero"
   - titolo: "Linux Day Enna 2026"
     anteprima: "/2026/locandina-anteprima.jpg"
     grande: "/2026/locandina-linux-day-enna-2026.png"
@@ -74,7 +73,6 @@ locandine:
         url: "/2026/locandina-linux-day-enna-2026.png"
       - formato: "JPG"
         url: "/2026/locandina-linux-day-enna-2026.jpg"
-        nota: "più leggero"
 # Immagine di anteprima quando la pagina viene condivisa
 immagine_social: "/2026/locandina-linux-day-enna-2026-generale.jpg"
 nota_programma: "Programma di massima: titoli, ordine e orari saranno confermati nei prossimi giorni."
