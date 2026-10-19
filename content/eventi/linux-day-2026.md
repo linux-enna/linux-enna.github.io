@@ -4,8 +4,8 @@ url: "/2026/"
 date: 2026-10-09  # data di pubblicazione della pagina, non dell'evento
 in_evidenza: true
 eyebrow: "Giornata nazionale del software libero"
-lead: "Una giornata per scoprire Linux e il software libero: talk al mattino, installation party e confronto con le aziende nel pomeriggio. Aperta a studenti, docenti, professionisti e curiosi."
-summary: "Talk, installation party e confronto con le aziende del territorio. Università Kore di Enna, C.da Santa Panasia. Ingresso libero e gratuito."
+lead: "Una giornata per scoprire Linux e il software libero: talk al mattino, demo di robotica e installation party nel pomeriggio. Aperta a studenti, docenti, professionisti e curiosi."
+summary: "Talk, demo di robotica e installation party. Università Kore di Enna, C.da Santa Panasia. Ingresso libero e gratuito."
 quando: "Sabato 24 ottobre 2026"
 dove: "Università Kore di Enna, C.da Santa Panasia"
 mappa: "https://www.openstreetmap.org/node/12698650099#map=19/37.540615/14.284000"
@@ -28,10 +28,7 @@ moduli:
     titolo: "Proponi un talk o una demo"
     testo: "C'è ancora uno spazio nel programma. Raccontaci la tua idea."
     pulsante: "Modulo proposte di talk"
-  - modulo: "aziende"
-    titolo: "Aziende e professionisti"
-    testo: "Raccontate come usate l'open source alla tavola rotonda del pomeriggio."
-    pulsante: "Modulo aziende"
+
 # Chi sostiene l'evento (shortcode {{< supporters >}}). Loghi in static/img/supporters/.
 # Ogni voce: nome, ruolo, url, logo (tema chiaro), logo_scuro (tema scuro, facoltativo).
 supporters:
@@ -93,13 +90,11 @@ programma:
       - titolo: "Liberi di usare l'AI"
         relatore: "Moreno La Quatra"
         nota: "L'intelligenza artificiale è davvero aperta a tutti? Sempre più modelli vengono presentati come open, ma non tutti garantiscono le stesse libertà. Il talk chiarisce la differenza tra open source e open weights, spiegando cosa possiamo realmente fare con questi modelli e quali limitazioni possono avere. Vedremo inoltre come eseguire un modello di intelligenza artificiale direttamente sul proprio computer, senza affidarsi a servizi esterni."
-      - titolo: "Terzo talk"
-        da_confermare: true
-        link:
-          testo: "Modulo proposte di talk"
-          modulo: "talk"
+      - titolo: "Open Source e Ricerca scientifica"
+        relatore: "Carmelo Scuro"
+        nota: "Le tecnologie open source rappresentano oggi una risorsa strategica per la ricerca scientifica, poiché favoriscono l'accessibilità degli strumenti e la riproducibilità dei risultati. In questo contesto, la modellistica matematica consente di descrivere fenomeni complessi e di costruire scenari previsionali a supporto delle decisioni. Un'applicazione riguarda lo studio degli incendi nel territorio ennese, affrontato integrando modelli matematici, dati ambientali e informazioni geospaziali. L'impiego di strumenti open source permette di simulare la propagazione del fuoco e di individuare le aree maggiormente esposte. Tale approccio mostra come l'integrazione tra matematica e tecnologie open source possa contribuire alla prevenzione e alla gestione del rischio ambientale."
   - parte: "Pomeriggio"
-    sottotitolo: "pratica e confronto"
+    sottotitolo: "demo e pratica"
     voci:
       - parallelo:
           - titolo: "Robotica e Open Source"
@@ -114,12 +109,7 @@ programma:
             link:
               testo: "Come funziona"
               url: "#installation-party"
-      - titolo: "L'open source nelle aziende del territorio"
-        tipo: tavola
-        da_confermare: true
-        link:
-          testo: "Modulo aziende"
-          modulo: "aziende"
+
       - titolo: "Chiusura"
         tipo: servizio
 ---
