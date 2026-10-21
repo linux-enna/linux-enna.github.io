@@ -91,7 +91,7 @@ programma:
         orario: "10:45-11:30"
         relatore: "Moreno La Quatra"
         nota: "L'intelligenza artificiale è davvero aperta a tutti? Sempre più modelli vengono presentati come open, ma non tutti garantiscono le stesse libertà. Il talk chiarisce la differenza tra open source e open weights, spiegando cosa possiamo realmente fare con questi modelli e quali limitazioni possono avere. Vedremo inoltre come eseguire un modello di intelligenza artificiale direttamente sul proprio computer, senza affidarsi a servizi esterni."
-      - titolo: "Coffee break"
+      - titolo: "Pausa"
         tipo: servizio
         orario: "11:30-11:45"
       - titolo: "Open Source e Ricerca scientifica"
