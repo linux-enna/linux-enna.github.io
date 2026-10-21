@@ -42,7 +42,8 @@ Nel file dell'evento, il campo `programma` è diviso in parti (mattina, pomerigg
 
 | Campo | Significato |
 |---|---|
-| `titolo` | obbligatorio |
+| `titolo` | titolo della voce, omettibile in attesa di riceverlo dal relatore |
+| `orario` | orario o fascia oraria, ad esempio `09:30`, `14:30-15:00` o `Dalle 14:30` |
 | `tipo` | `talk` (default), `demo`, `lab`, `tavola`, `servizio`: cambia colore ed etichetta |
 | `relatore` | nome di chi parla |
 | `nota` | una riga in più |
@@ -50,7 +51,7 @@ Nel file dell'evento, il campo `programma` è diviso in parti (mattina, pomerigg
 | `immagine`, `immagine_alt` | piccola illustrazione tra descrizione e link della voce, con sfondo trasparente (file in `static/2026/`) e testo alternativo |
 | `link` | un link sotto la voce: `{testo: "...", url: "..."}` oppure `{testo: "...", modulo: "talk"}` |
 
-Le voci che si svolgono in contemporanea vanno dentro `parallelo`. Gli orari per ora non sono mostrati: il programma è "di massima".
+Le voci che si svolgono in contemporanea vanno dentro `parallelo`. Gli orari sono mostrati sopra ogni voce se presenti. Per una fascia comune a più talk, indicarla in `nota_programma` senza inventare gli orari dei singoli interventi. Finché gli orari sono indicativi, dirlo in `nota_programma`.
 
 ### Riquadro "da terminale"
 

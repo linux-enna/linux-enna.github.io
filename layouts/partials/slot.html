@@ -2,8 +2,9 @@
 {{- $tipo := .tipo | default "talk" -}}
 {{- $etichette := dict "talk" "talk" "demo" "demo" "lab" "laboratorio" "tavola" "tavola rotonda" "servizio" "" -}}
 <div class="card card--{{ $tipo }}">
+  {{- with .orario }}<span class="card-time">{{ . }}</span>{{ end }}
   {{- with index $etichette $tipo }}<span class="kind">{{ . }}</span>{{ end }}
-  <span class="card-title">{{ .titolo }}{{ if .da_confermare }} <span class="tag">da confermare</span>{{ end }}</span>
+  {{- if or .titolo .da_confermare }}<span class="card-title">{{ with .titolo }}{{ . }}{{ end }}{{ if .da_confermare }} <span class="tag">da confermare</span>{{ end }}</span>{{ end }}
   {{- with .relatore }}<span class="who">{{ . }}</span>{{ end }}
   {{- with .nota }}<div class="card-note">{{ . | markdownify }}</div>{{ end }}
   {{- with .immagine }}<img class="card-image" src="{{ . | relURL }}" alt="{{ $.immagine_alt }}" width="760" height="506" loading="lazy">{{ end }}

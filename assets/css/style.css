@@ -235,6 +235,7 @@ main { padding-block: 2.5rem 4rem; }
 
 .card { display: flex; flex-direction: column; gap: 0.15rem; height: 100%; padding: 0.9rem 1.1rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
 .card-title { font-weight: 600; font-size: 1.05rem; line-height: 1.35; }
+.card-time { font-family: var(--mono); font-size: 0.85rem; margin-bottom: 0.25rem; }
 .who { display: block; color: var(--muted); font-size: 0.95rem; }
 /* Small illustration between description and link of a programme card, transparent background */
 .card-image { display: block; width: 100%; max-width: 13rem; height: auto; margin: 0.6rem auto 0.2rem; align-self: center; }

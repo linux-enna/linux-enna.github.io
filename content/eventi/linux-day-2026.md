@@ -4,7 +4,7 @@ url: "/2026/"
 date: 2026-10-09  # data di pubblicazione della pagina, non dell'evento
 in_evidenza: true
 eyebrow: "Giornata nazionale del software libero"
-lead: "Una giornata per scoprire Linux e il software libero: talk al mattino, demo di robotica e installation party nel pomeriggio. Aperta a studenti, docenti, professionisti e curiosi."
+lead: "Una giornata per scoprire Linux e il software libero: talk al mattino e nel pomeriggio, demo di robotica e installation party. Aperta a studenti, docenti, professionisti e curiosi."
 summary: "Talk, demo di robotica e installation party. Università Kore di Enna, C.da Santa Panasia. Ingresso libero e gratuito."
 quando: "Sabato 24 ottobre 2026"
 dove: "Università Kore di Enna, C.da Santa Panasia"
@@ -24,10 +24,7 @@ moduli:
     titolo: "Dai una mano"
     testo: "Cerchiamo volontari per accoglienza e installation party. Non serve essere esperti."
     pulsante: "Modulo volontari"
-  - modulo: "talk"
-    titolo: "Proponi un talk o una demo"
-    testo: "C'è ancora uno spazio nel programma. Raccontaci la tua idea."
-    pulsante: "Modulo proposte di talk"
+
 
 # Chi sostiene l'evento (shortcode {{< supporters >}}). Loghi in static/img/supporters/.
 # Ogni voce: nome, ruolo, url, logo (tema chiaro), logo_scuro (tema scuro, facoltativo).
@@ -72,37 +69,53 @@ locandine:
         url: "/2026/locandina-linux-day-enna-2026.jpg"
 # Immagine di anteprima quando la pagina viene condivisa
 immagine_social: "/2026/locandina-linux-day-enna-2026-generale.jpg"
-nota_programma: "Programma di massima: titoli, ordine e orari saranno confermati nei prossimi giorni."
+nota_programma: "Gli orari sono indicativi e potranno subire variazioni."
 
 # Ogni voce: titolo, tipo (talk | demo | lab | tavola | servizio, default talk),
-# relatore, nota, da_confermare: true, link, immagine e immagine_alt (tutti facoltativi tranne titolo).
+# orario, relatore, nota, da_confermare: true, link, immagine e immagine_alt (facoltativi).
+# Il titolo si puo' omettere in attesa di riceverlo dal relatore.
 # link: {testo, url} oppure {testo, modulo: "talk"} per un modulo definito in hugo.toml.
 # "parallelo" raggruppa le voci che si svolgono in contemporanea.
 programma:
   - parte: "Mattina"
     sottotitolo: "talk"
     voci:
-      - titolo: "Accoglienza e apertura della giornata"
+      - titolo: "Accoglienza, registrazione dei partecipanti e apertura della giornata"
         tipo: servizio
+        orario: "09:30"
       - titolo: "Fare a meno del cloud"
+        orario: "10:00-10:45"
         relatore: "Christophe Sollami"
         nota: "Foto, documenti e servizi online: ogni giorno affidiamo sempre più dati a piattaforme esterne. Ma è davvero necessario? Il self-hosting offre un'alternativa: ospitare i propri servizi su un server personale, mantenendo il controllo sui dati. Attraverso esempi pratici, il talk mostra come iniziare a farlo utilizzando i container, senza dover dipendere necessariamente dai grandi provider cloud."
       - titolo: "Liberi di usare l'AI"
+        orario: "10:45-11:30"
         relatore: "Moreno La Quatra"
         nota: "L'intelligenza artificiale è davvero aperta a tutti? Sempre più modelli vengono presentati come open, ma non tutti garantiscono le stesse libertà. Il talk chiarisce la differenza tra open source e open weights, spiegando cosa possiamo realmente fare con questi modelli e quali limitazioni possono avere. Vedremo inoltre come eseguire un modello di intelligenza artificiale direttamente sul proprio computer, senza affidarsi a servizi esterni."
+      - titolo: "Coffee break"
+        tipo: servizio
+        orario: "11:30-11:45"
       - titolo: "Open Source e Ricerca scientifica"
+        orario: "11:45-12:30"
         relatore: "Carmelo Scuro"
         nota: "Le tecnologie open source rappresentano oggi una risorsa strategica per la ricerca scientifica, poiché favoriscono l'accessibilità degli strumenti e la riproducibilità dei risultati. In questo contesto, la modellistica matematica consente di descrivere fenomeni complessi e di costruire scenari previsionali a supporto delle decisioni. Un'applicazione riguarda lo studio degli incendi nel territorio ennese, affrontato integrando modelli matematici, dati ambientali e informazioni geospaziali. L'impiego di strumenti open source permette di simulare la propagazione del fuoco e di individuare le aree maggiormente esposte. Tale approccio mostra come l'integrazione tra matematica e tecnologie open source possa contribuire alla prevenzione e alla gestione del rischio ambientale."
+      - titolo: "Pausa pranzo"
+        tipo: servizio
+        orario: "12:30-14:30"
   - parte: "Pomeriggio"
-    sottotitolo: "demo e pratica"
+    sottotitolo: "talk, demo e pratica"
     voci:
+      - tipo: talk
+        orario: "14:30-15:00"
+        relatore: "Aurelio Francesco Carmeni"
       - parallelo:
           - titolo: "Robotica e Open Source"
             tipo: demo
+            orario: "Dalle 15:00"
             relatore: "Giuseppe Sutera"
             nota: "Come si passa dal codice al movimento di un robot? E quale ruolo hanno Linux e il software libero? Una dimostrazione dal vivo di come le tecnologie open source vengono utilizzate nella robotica: dalla lettura dei sensori al controllo dei movimenti, fino al software che coordina il funzionamento del robot. Un'occasione per vedere questi strumenti in azione e comprenderne le applicazioni pratiche."
           - titolo: "Linux installation party"
             tipo: lab
+            orario: "Dalle 15:00"
             nota: "Durante il pomeriggio, porta il tuo computer e installiamo Linux insieme."
             immagine: "/2026/installation-party.png"
             immagine_alt: "Tre persone intorno a un portatile che installa Linux"
@@ -110,8 +123,9 @@ programma:
               testo: "Come funziona"
               url: "#installation-party"
 
-      - titolo: "Chiusura"
+      - titolo: "Chiusura, discussione e foto di gruppo"
         tipo: servizio
+        orario: "16:30"
 ---
 
 ## Installation party {#installation-party}
@@ -137,7 +151,7 @@ Per tutto il resto, la pagina [Contatti](/contatti/).
 
 ## Come arrivare {#dove}
 
-Università Kore di Enna, Contrada Santa Panasia, Enna. Le indicazioni per le aule saranno disponibili all'ingresso.
+Università Kore di Enna, Contrada Santa Panasia, Enna, nell'edificio dietro il Kore Platform (Medicina). Le indicazioni per le aule saranno disponibili all'ingresso.
 
 [Apri la mappa su OpenStreetMap](https://www.openstreetmap.org/node/12698650099#map=19/37.540615/14.284000) {{< alt prima="o su" url="https://maps.app.goo.gl/daCdNRGDZn4bxi8ZA" >}}Google Maps{{< /alt >}}
 
