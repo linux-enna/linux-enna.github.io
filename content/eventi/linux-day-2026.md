@@ -104,9 +104,14 @@ programma:
   - parte: "Pomeriggio"
     sottotitolo: "talk, demo e pratica"
     voci:
-      - tipo: talk
+      - titolo: "Linux alla portata di tutti"
+        tipo: talk
         orario: "14:30-15:00"
         relatore: "Aurelio Francesco Carmeni"
+        nota: >-
+          Linux è davvero così difficile? È solo per programmatori ed esperti, oppure può essere alla portata di tutti? E se potessi fare tutto ciò che fai ogni giorno, ma con più libertà?
+
+          Attraverso la mia esperienza e lo sviluppo della mia distribuzione Linux, scopriremo un mondo in cui personalizzazione, creatività e possibilità non hanno quasi limiti. Perché Linux non è solo per pochi: è per tutti.
       - parallelo:
           - titolo: "Robotica e Open Source"
             tipo: demo
